@@ -1,31 +1,31 @@
 <?php
 
 class User{
-    public $id = 33;
-    public $username;
-    public $email;
-    public $password;
+    private $id = 33;
+    protected $username;
+    private $email;
+    private $password;
 
 
 
-    public function __construct(){
-        //echo 'Constructor Called';
+    public function __construct($username, $password){
+        $this -> username = $username;
+        $this -> password = $password;
     }
     public function register(){
         echo 'User registered';
 
     }
 
-    public function login($username, $password){
+    public function login(){
         //echo $username.' is now logged in';
-        $this -> username = $username;
-        $this -> password = $password;
+       
         $this -> auth_user();
         //$this -> auth_user($username, $password);
     }
 
     public function auth_user(){
-        echo $this -> username. ' is authenticated';
+        //echo $this -> username. ' is authenticated';
     }
 
     public function __destruct(){
@@ -33,9 +33,10 @@ class User{
     }
 }
 
-$User = new User;          //Creation of object
+$User = new User('Aneri', '1234');          //Creation of object
 
+echo $User -> username;
 //$User -> register();
-$User -> login('Aneri', '1234');
+//$User -> login();
 
 ?>
